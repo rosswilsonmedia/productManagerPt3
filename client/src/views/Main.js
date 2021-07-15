@@ -15,10 +15,14 @@ const Main = () => {
 
     console.log(productsList);
 
+    const removeFromState = productId => {
+        setProductsList(productsList.filter(product => product._id != productId));
+    }
+
     return (
         <div>
             <ProductForm/>
-            <ProductsList productsList={productsList}/>
+            <ProductsList removeFromState={removeFromState} productsList={productsList}/>
         </div>
     )
 }
